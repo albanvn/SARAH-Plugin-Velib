@@ -1,0 +1,7 @@
+OKLETSGO#Je me renseigne
+URLERROR#Je ne trouve pas l'information demandé
+PARKLEFT#Il y a %NUMBER% places de libres à la station %STATION_NAME%
+BIKELEFT#Il y a %NUMBER% vélos disponibles à la station %STATION_NAME%
+NOPARKLEFT#Pas de place disponible à la station %STATION_NAME%
+NOBIKELEFT#Pas de vélo disponible à la station %STATION_NAME%
+UNKNOWCMD#Je ne comprends pas votre demande

@@ -1,0 +1,21 @@
+﻿<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="ruleVelib" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+  <rule id="ruleVelib" scope="public">
+    <example>Sarah  ?</example>
+    <tag>out.action=new Object();</tag>
+    <item>Sarah</item>
+    <one-of>
+      <item>Est-ce que il y a des vélib disponibles<tag>out.action.type="get";</tag></item>
+      <item>Est-ce que il y a des places de vélib disponibles<tag>out.action.type="park";</tag></item>
+    </one-of>
+    <item repeat="0-1">
+      <one-of>
+        <item>s'il te plait</item>
+        <item>si il te plait</item>
+        <item>se te plait</item>
+      </one-of>
+    </item>
+    <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/Velib";</tag>
+  </rule> 
+<!-- Automatic Generation § -->
+<!-- § Automatic Generation -->
+</grammar>

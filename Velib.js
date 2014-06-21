@@ -24,6 +24,8 @@ exports.init = function(SARAH)
 	var config=SARAH.ConfigManager.getConfig();
 	config=config.modules.Velib;
 	
+/*
+	// Get the supported cities list
 	url="https://api.jcdecaux.com/vls/v1/contracts?apiKey="+ DEFAULTAPIKEY;
 	var request = require('request');
 	request({ 'uri' : url }, 
@@ -33,7 +35,7 @@ exports.init = function(SARAH)
 				for (var i in result)
 					console.log("Ville connue:"+result[i].name);
 			});
-
+*/
 }
 
 exports.release = function(SARAH)
@@ -85,7 +87,6 @@ function parseResultGet(content, SARAH)
 	if (i!=-1)
 		name=result.name.substring(i+1);
 	loc.addDictEntry("STATION_NAME", name);
-console.log(result);
 	if (result.available_bikes>0)
 	{
 		loc.addDictEntry("NUMBER", result.available_bikes);
@@ -117,12 +118,12 @@ var action = function(data, callback, config, SARAH)
 			case "park":
 				SARAH.speak(loc.getLocalString("OKLETSGO"));
 				for (var i in stations)
-				sendVelibRequest(apiKey, config.city, stations[i], parseResultPark, SARAH);
+					sendVelibRequest(apiKey, config.city, stations[i], parseResultPark, SARAH);
 				break;
 			case "get":
 				SARAH.speak(loc.getLocalString("OKLETSGO"));
 				for (var i in stations)
-				sendVelibRequest(apiKey, config.city, stations[i], parseResultGet, SARAH);
+					sendVelibRequest(apiKey, config.city, stations[i], parseResultGet, SARAH);
 				break;
 			default:
 				SARAH.speak(loc.getLocalString("UNKNOWCMD"));

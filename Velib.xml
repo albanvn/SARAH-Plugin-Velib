@@ -4,9 +4,21 @@
     <tag>out.action=new Object();</tag>
     <item>Sarah</item>
     <one-of>
-      <item>Est-ce que il y a des vélib disponibles<tag>out.action.type="get";</tag></item>
-      <item>Est-ce que il y a des places de vélib disponibles<tag>out.action.type="park";</tag></item>
+      <item>vélos disponibles<tag>out.action.type="get";</tag></item>
+      <item>vélib disponibles<tag>out.action.type="get";</tag></item>
+      <item>Est-ce qu'il y a des vélib disponibles<tag>out.action.type="get";</tag></item>
+      <item>Est-ce qu'il y a des vélos disponibles<tag>out.action.type="get";</tag></item>
+      <item>Est-ce qu'il y a des vélib<tag>out.action.type="get";</tag></item>
+      <item>Est-ce qu'il y a des vélos<tag>out.action.type="get";</tag></item>
+      <item>places vélos disponibles<tag>out.action.type="park";</tag></item>
+      <item>places vélib disponibles<tag>out.action.type="park";</tag></item>
+      <item>Est-ce qu'il y a des places de vélib disponibles<tag>out.action.type="park";</tag></item>
+      <item>Est-ce qu'il y a des places de vélos disponibles<tag>out.action.type="park";</tag></item>
+      <item>Est-ce qu'il y a des places de vélib<tag>out.action.type="park";</tag></item>
+      <item>Est-ce qu'il y a des places de vélos<tag>out.action.type="park";</tag></item>
     </one-of>
+<!-- Automatic Generation § -->
+<!-- § Automatic Generation -->
     <item repeat="0-1">
       <one-of>
         <item>s'il te plait</item>
@@ -16,6 +28,4 @@
     </item>
     <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/Velib";</tag>
   </rule> 
-<!-- Automatic Generation § -->
-<!-- § Automatic Generation -->
 </grammar>

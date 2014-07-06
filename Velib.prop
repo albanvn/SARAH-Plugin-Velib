@@ -1,7 +1,7 @@
 {
   "modules" : { 
     "Velib"  : {
-      "description": "",
+      "description": "Permet de connaître l'état des stations Velib et associés",
       "version": "1.0",
 	  "city": "",
 	  "stations": "",

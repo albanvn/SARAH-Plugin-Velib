@@ -243,11 +243,11 @@ function zp(num, places)
 var formatDate=function(loc, d, mode)
 {
   // MONTH#Janvier~Février~Mars~Avril~Mai~Juin~Juillet~Aout~Septembre~Octobre~Novembre~Décembre
-  var cs_month=loc.getLocalStringArray("MONTH");
+  var cs_month=loc.getLocalStringAndSplit("MONTH");
   // DAY#Lundi~Mardi~Mercredi~Jeudi~Vendredi~Samedi~Dimanche
-  var cs_day=loc.getLocalStringArray("DAY");
+  var cs_day=loc.getLocalStringAndSplit("DAY");
   // NEARDAY#Aujourd'hui~Demain~Après demain
-  var cs_nearday=loc.getLocalStringArray("NEARDAY");
+  var cs_nearday=loc.getLocalStringAndSplit("NEARDAY");
   var str="";
   switch(mode)
   {
@@ -282,24 +282,12 @@ var formatDate=function(loc, d, mode)
 		loc.addDictEntry("MINUTES", d.getMinutes());
 		// FORMATDATE2A1#le %WEEKDAY% %DAY %MONTH%,
 		var compday=loc.getLocalString("FORMATDATE2A1");
-		if (d.getDate()-n.getDate()<cs_nearday.length())
+		if (d.getDate()-n.getDate()<cs_nearday.length)
 		{
 		  loc.addDictEntry("DAY", cs_nearday[d.getDate()-n.getDate()]);
 		  // FORMATDATE2A2#%DAY%,
 		  compday=loc.getLocalString("FORMATDATE2A2");
 		}
-/*
-		var day="le "+cs_day[ref.getDay()] + " " + ref.getDate() + " " + cs_month[ref.getMonth()];
-		if (n.getDate()==d.getDate())
-		  day="aujourd'hui";
-		else if ((n.getDate()+1)==d.getDate())
-		  day="demain";
-		else if ((n.getDate()+1)==d.getDate())
-		  day="après-demain";
-	    str=day+ " à " + ref.getHours()+ " heure "; 
-		if (d.getMinutes()>0)
-			str+="et "+d.getMinutes()+" minutes";
-*/
 		loc.addDictEntry("COMPLETEDAY", compday);
 		if (d.getMinutes()>0)
 			// FORMATDATE2B1#%COMPLETEDAY% à %HOURS% heures
@@ -327,6 +315,17 @@ var formatDate=function(loc, d, mode)
 	case 4:
 		// as mode 0 but with seconds
 		str=zp(d.getDate(),2)+"/"+zp(d.getMonth()+1,2)+"/"+d.getFullYear()+" "+zp(d.getHours(),2)+":"+zp(d.getMinutes(),2)+":"+zp(d.getSeconds(),2);
+	case 5:
+	    // to text to vocalize, mode complete
+		var n=new Date();
+		loc.addDictEntry("WEEKDAY", cs_day[d.getDay()]);
+		loc.addDictEntry("DAY", d.getDate());
+		loc.addDictEntry("MONTH", cs_month[d.getMonth()]);
+		loc.addDictEntry("HOURS", d.getHours());
+		loc.addDictEntry("MINUTES", d.getMinutes());
+		// FORMATDATE2A1#le %WEEKDAY% %DAY %MONTH%,
+		str=loc.getLocalString("FORMATDATE5A");
+		break;
   }
   return str;
 }

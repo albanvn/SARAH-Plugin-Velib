@@ -9,7 +9,8 @@
 
 /*****************************
   TODO LIST:
-    -
+    -particular station question
+	-alert on station change
 ******************************/
 
 var g_debug=0;
@@ -124,6 +125,9 @@ var action = function(data, callback, config, SARAH)
 				SARAH.speak(loc.getLocalString("OKLETSGO"));
 				for (var i in stations)
 					sendVelibRequest(apiKey, config.city, stations[i], parseResultGet, SARAH);
+				break;
+			case "alert1":
+			case "alert2":
 				break;
 			default:
 				SARAH.speak(loc.getLocalString("UNKNOWCMD"));

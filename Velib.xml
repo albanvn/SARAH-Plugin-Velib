@@ -16,6 +16,8 @@
       <item>Est-ce qu'il y a des places de vélos disponibles<tag>out.action.type="park";</tag></item>
       <item>Est-ce qu'il y a des places de vélib<tag>out.action.type="park";</tag></item>
       <item>Est-ce qu'il y a des places de vélos<tag>out.action.type="park";</tag></item>
+      <item>Préviens moi lorsqu'il y a des vélos vélib disponibles<tag>out.action.type="alert1";</tag></item>
+      <item>Previens moi lorsqu'il y a des places vélib disponibles<tag>out.action.type="alert2";</tag></item>
     </one-of>
 <!-- Automatic Generation § -->
 <!-- § Automatic Generation -->
